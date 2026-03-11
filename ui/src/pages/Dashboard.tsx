@@ -284,7 +284,7 @@ export function Dashboard() {
 							value={data.pendingApprovals}
 							label="Pending Approvals"
 							to="/approvals"
-							description={<span>{data.staleTasks} stale tasks</span>}
+							description={<span>Awaiting board review</span>}
 						/>
 					</div>
 
