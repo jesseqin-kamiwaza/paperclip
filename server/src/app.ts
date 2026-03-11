@@ -27,6 +27,7 @@ import { llmRoutes } from "./routes/llms.js";
 import { projectRoutes } from "./routes/projects.js";
 import { secretRoutes } from "./routes/secrets.js";
 import { sidebarBadgeRoutes } from "./routes/sidebar-badges.js";
+import { templateRoutes } from "./routes/templates.js";
 import type { StorageService } from "./storage/types.js";
 import { applyUiBranding } from "./ui-branding.js";
 
@@ -110,6 +111,7 @@ export async function createApp(
 			pendingMigrations: opts.pendingMigrations ?? [],
 		}),
 	);
+	api.use("/templates", templateRoutes(db));
 	api.use("/companies", companyRoutes(db));
 	api.use(agentRoutes(db));
 	api.use(assetRoutes(db, opts.storageService));
