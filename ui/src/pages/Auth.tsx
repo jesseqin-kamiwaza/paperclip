@@ -14,7 +14,9 @@ export function AuthPage() {
 	const queryClient = useQueryClient();
 	const navigate = useNavigate();
 	const [searchParams] = useSearchParams();
-	const [mode, setMode] = useState<AuthMode>("sign_in");
+	const [mode, setMode] = useState<AuthMode>(
+		searchParams.get("signup") === "true" ? "sign_up" : "sign_in",
+	);
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
