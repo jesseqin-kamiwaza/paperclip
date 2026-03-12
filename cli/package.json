@@ -1,13 +1,13 @@
 {
-  "name": "paperclipai",
+  "name": "solo-unicorn",
   "version": "0.3.0",
-  "description": "Paperclip CLI — orchestrate AI agent teams to run a business",
+  "description": "Solo Unicorn CLI — orchestrate AI agent teams to run a business",
   "type": "module",
   "bin": {
-    "paperclipai": "./dist/index.js"
+    "solounicorn": "./dist/index.js"
   },
   "keywords": [
-    "paperclip",
+    "solo-unicorn",
     "ai",
     "agents",
     "orchestration",
@@ -19,7 +19,7 @@
     "url": "https://github.com/paperclipai/paperclip.git",
     "directory": "cli"
   },
-  "homepage": "https://github.com/paperclipai/paperclip",
+  "homepage": "https://solounicornclub.com",
   "files": [
     "dist"
   ],
