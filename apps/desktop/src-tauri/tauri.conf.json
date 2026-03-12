@@ -1,0 +1,75 @@
+{
+  "$schema": "https://raw.githubusercontent.com/tauri-apps/tauri/tauri-v2/crates/tauri-cli/schema.json",
+  "productName": "Solo Unicorn",
+  "version": "0.1.0",
+  "identifier": "club.solounicorn.desktop",
+  "build": {
+    "frontendDist": "../src",
+    "devUrl": "http://localhost:3100",
+    "beforeDevCommand": "",
+    "beforeBuildCommand": ""
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "title": "Solo Unicorn",
+        "width": 1400,
+        "height": 900,
+        "minWidth": 900,
+        "minHeight": 600,
+        "center": true,
+        "resizable": true,
+        "fullscreen": false,
+        "decorations": true,
+        "transparent": false,
+        "url": "index.html"
+      }
+    ],
+    "trayIcon": {
+      "id": "main-tray",
+      "iconPath": "icons/icon.png",
+      "iconAsTemplate": true,
+      "menuOnLeftClick": false,
+      "tooltip": "Solo Unicorn"
+    },
+    "security": {
+      "csp": "default-src 'self'; connect-src 'self' http://localhost:3100 ws://localhost:3100; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: http://localhost:3100"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["dmg", "app"],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "macOS": {
+      "entitlements": "Entitlements.plist",
+      "exceptionDomain": "localhost",
+      "signingIdentity": null,
+      "minimumSystemVersion": "10.15"
+    },
+    "externalBin": [
+      "binaries/solounicorn-server"
+    ]
+  },
+  "plugins": {
+    "shell": {
+      "open": true,
+      "scope": {
+        "sidecar": {
+          "name": "binaries/solounicorn-server",
+          "sidecar": true,
+          "args": true
+        }
+      }
+    },
+    "updater": {
+      "active": false
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://raw.githubusercontent.com/tauri-apps/tauri/tauri-v2/crates/tauri-utils/schema/capability.json",
+  "identifier": "default",
+  "description": "Default capabilities for the Solo Unicorn desktop app",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "shell:allow-execute",
+    "shell:allow-open",
+    "shell:default",
+    "process:default",
+    "updater:default"
+  ]
+}
