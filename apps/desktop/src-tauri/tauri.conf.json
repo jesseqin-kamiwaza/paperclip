@@ -52,24 +52,16 @@
       "exceptionDomain": "localhost",
       "signingIdentity": null,
       "minimumSystemVersion": "10.15"
-    },
-    "externalBin": [
-      "binaries/solounicorn-server"
-    ]
+    }
   },
   "plugins": {
     "shell": {
-      "open": true,
-      "scope": {
-        "sidecar": {
-          "name": "binaries/solounicorn-server",
-          "sidecar": true,
-          "args": true
-        }
-      }
+      "open": true
     },
     "updater": {
-      "active": false
+      "active": false,
+      "pubkey": "",
+      "endpoints": []
     }
   }
 }

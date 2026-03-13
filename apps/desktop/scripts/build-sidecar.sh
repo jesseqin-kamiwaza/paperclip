@@ -71,13 +71,21 @@ npx esbuild "$REPO_ROOT/server/dist/index.js" \
   --bundle \
   --platform=node \
   --target=node20 \
-  --outfile="$BUNDLE_DIR/server-bundle.cjs" \
-  --format=cjs \
+  --outfile="$BUNDLE_DIR/server-bundle.mjs" \
+  --format=esm \
+  --banner:js="import { createRequire } from 'module'; const require = createRequire(import.meta.url);" \
   --external:embedded-postgres \
   --external:better-sqlite3 \
   --external:pg-native \
   --external:cpu-features \
   --external:ssh2 \
+  --external:fsevents \
+  --external:lightningcss \
+  --external:@tailwindcss/oxide \
+  --external:vite \
+  --external:rollup \
+  --external:esbuild \
+  --external:tsx \
   --sourcemap=external \
   --minify
 
@@ -103,7 +111,7 @@ PKG_TARGET="node20-${PKG_OS}-${PKG_ARCH}"
 mkdir -p "$BINARIES_DIR"
 
 npx --yes @yao-pkg/pkg \
-  "$BUNDLE_DIR/server-bundle.cjs" \
+  "$BUNDLE_DIR/server-bundle.mjs" \
   --target "$PKG_TARGET" \
   --output "$BINARIES_DIR/$SIDECAR_NAME" \
   --compress GZip
